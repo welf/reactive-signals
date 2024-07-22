@@ -1,7 +1,7 @@
 {
   "name": "reactive-signals",
   "version": "1.0.0",
-  "description": "Signals implementation",
+  "description": "Reactive state management system implementation based on signals and effects",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest"
