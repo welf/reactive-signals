@@ -2,7 +2,7 @@
   "name": "reactive-signals",
   "version": "1.0.0",
   "description": "Reactive state management system implementation based on signals and effects",
-  "main": "dist/index.js",
+  "main": "dist/signals.js",
   "scripts": {
     "test": "jest"
   },
@@ -16,6 +16,7 @@
   "author": "Arthur Welf",
   "license": "ISC",
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.3",

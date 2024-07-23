@@ -34,7 +34,9 @@ class SignalImplementation<Value> implements Signal<Value> {
 
   protected runDependencies() {
     const depsToRun = [...this.dependencies];
-    depsToRun.forEach((effect) => effect());
+    for (const effect of depsToRun) {
+      effect();
+    }
   }
 
   removeDependency(effect: Effect) {
@@ -61,7 +63,9 @@ export function effect(cb: VoidFunction) {
       return;
     }
 
-    effectCb.dependencies.forEach((signal) => signal.removeDependency(effectCb));
+    for (const signal of effectCb.dependencies) {
+      signal.removeDependency(effectCb);
+    }
 
     effectCb.isRunning = true;
     const prevRunningEffect = executingEffect;
@@ -88,7 +92,9 @@ export function effect(cb: VoidFunction) {
 
   return () => {
     effectCb.isActive = false;
-    effectCb.dependencies.forEach((signal) => signal.removeDependency(effectCb));
+    for (const signal of effectCb.dependencies) {
+      signal.removeDependency(effectCb);
+    }
     effectCb.dependencies.length = 0;
   };
 }
